@@ -4,8 +4,6 @@ author: Javad Rajabzade
 date: 2021-04-21 15:33:00 +0800
 categories: [Golang, Codes]
 tags: [golang, go, patterns, codes]
-image:
-  src: https://raw.githubusercontent.com/Ja7ad/blog/master/images/patterns/design-patterns.png
 ---
 
 # Behavioral Patterns
