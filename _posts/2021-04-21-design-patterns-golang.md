@@ -126,7 +126,7 @@ type AndExpression struct {
 
 //Interpret func calculates expression
 func (e AndExpression) Interpret(i int) bool {
-    return e.exp1.Interpret(i) &amp;&amp; e.exp2.Interpret(i)
+    return e.exp1.Interpret(i) && e.exp2.Interpret(i)
 }
 
 //Client
@@ -178,7 +178,7 @@ type Numbers struct {
 
 //GetIterator return Iterator
 func (n Numbers) GetIterator() IntIterator {
-    return &amp;Iterator{n, 0}
+    return &Iterator{n, 0}
 }
 
 //Iterator is ConcreteIterator
@@ -237,14 +237,14 @@ type Switcher struct {
 
 //NewSwitcher creates a new Switcher
 func NewSwitcher(mediator Mediator) *Switcher {
-    switcher := &amp;Switcher{false, mediator}
+    switcher := &Switcher{false, mediator}
     mediator.Add(switcher)
     return switcher
 }
 
 //Sync starts the mediator Sync function
 func (s Switcher) Sync() {
-    s._mediator.Sync(&amp;s)
+    s._mediator.Sync(&s)
 }
 
 //SyncMediator is ConcreteMediator
@@ -265,7 +265,7 @@ func (sm *SyncMediator) Add(switcher *Switcher) {
 }
 
 //Client
-mediator := &amp;SyncMediator{[]*Switcher{}}
+mediator := &SyncMediator{[]*Switcher{}}
 switcher1 := NewSwitcher(mediator)
 switcher2 := NewSwitcher(mediator)
 switcher3 := NewSwitcher(mediator)
@@ -353,7 +353,7 @@ func (sh *ShapeHelper) Undo() {
 }
 
 //Client
-shape := &amp;Shape{}
+shape := &Shape{}
 helper := NewShapeHelper(shape)
 
 helper.Move(2, 3)
@@ -848,13 +848,13 @@ func (tm TextMaker) MakeText(textBuilder TextWorker) {
 textMaker := TextMaker{}
 
 textBuilder := TextBuilder{}
-textMaker.MakeText(&amp;textBuilder)
+textMaker.MakeText(&textBuilder)
 text := textBuilder.Text
 //text: line 1
 //      line 2
 
 htmlBuilder := HTMLBuilder{}
-textMaker.MakeText(&amp;htmlBuilder)
+textMaker.MakeText(&htmlBuilder)
 html := htmlBuilder.HTML
 //html: <span>line 1</span><br/>
 //      <span>line 2</span>
@@ -986,7 +986,7 @@ var instance *Settings
 //GetInstance returns a single instance of the settings
 func GetInstance() *Settings {
     if instance == nil {
-        instance = &amp;Settings{} // <--- NOT THREAD SAFE
+        instance = &Settings{} // <--- NOT THREAD SAFE
     }
     return instance
 }
@@ -1180,12 +1180,12 @@ func fillTextBuilder(textImp ITextImp) AText {
 }
 
 //Client
-textMaker := fillTextBuilder(&amp;TextBuilder{})
+textMaker := fillTextBuilder(&TextBuilder{})
 text := textMaker.getText()
 //test: line 1
 //      line 2
 
-htmlMaker := fillTextBuilder(&amp;HTMLBuilder{})
+htmlMaker := fillTextBuilder(&HTMLBuilder{})
 html := htmlMaker.getText()
 //html: <span>line 1</span><br/>
 //      <span>line 2</span><br/>
@@ -1471,7 +1471,7 @@ type ImageProxy struct {
 //GetImage creates an Subject
 func (ip ImageProxy) GetImage() *Image {
     if ip._image == nil {
-        ip._image = &amp;Image{ip.FileName}
+        ip._image = &Image{ip.FileName}
     }
     return ip._image
 }
