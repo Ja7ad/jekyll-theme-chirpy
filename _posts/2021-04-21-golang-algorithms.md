@@ -146,7 +146,7 @@ func interpolationSearch(arr []int, x int) int {
     low := 0
     high := len(arr) - 1
 
-    for (arr[low] < x) &amp;&amp; (x < arr[high]) {
+    for (arr[low] < x) && (x < arr[high]) {
         var mid = low + ((x-arr[low])*(high-low))/(arr[high]-arr[low])
 
         if arr[mid] < x {
@@ -441,7 +441,7 @@ func merge(left []int, right []int, result []int) {
     r := 0
     i := 0
 
-    for l < len(left) &amp;&amp; r < len(right) {
+    for l < len(left) && r < len(right) {
         if left[l] < right[r] {
             result[i] = left[l]
             l++
