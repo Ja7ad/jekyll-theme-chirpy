@@ -4,7 +4,6 @@ author: Javad Rajabzade
 date: 2021-04-21 20:13:23 +0800
 categories: [Tricks, Privacy]
 tags: [privacy, leak, floc, Tricks]
-pin: true
 ---
 
 Tip and tricks for Prevent leak your privacy in internet (prevent google tracking) easyway step by step.
